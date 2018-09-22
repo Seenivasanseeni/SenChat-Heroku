@@ -33,8 +33,11 @@ def ChatMainPage():
 
 @app.route('/message/add',methods=["POST"])
 def addMessage():
-    if(not valid_user(session["user"])):
-        return "invalid user"
+    try:
+        if(not valid_user(session["user"])):
+            return "invalid user"
+    except:
+        return "Invlaid User"
     global messages
     user=session["user"]
     message=request.get_data() #body will contain the messages #todo find other ways to do this
