@@ -47,7 +47,8 @@ submit.addEventListener("click",(e)=>{
     e.preventDefault();
    message=messageE.value;
    messageE.value=""; 
-   controller.sendMessage(message);
+  if(message.length>0)
+	   controller.sendMessage(message);
 });
 
 var view={
