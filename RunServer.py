@@ -4,11 +4,12 @@ app=Flask(__name__)
 app.config["SECRET_KEY"]=b'qz\xc3\xf2\x80\xe1\xad\xf2\xf3\x93\x19(~\xac\xb4Ju\xdfl\xcd\xb5\xf9%\xdct\xc81]\xb6\xda\xed\x1c\xa5\x8d'
 
 userid=0
-def gen_user():
+def gen_user(): # todo generate ither users
     global userid
     userid_t=userid
     userid+=1
     return userid_t
+
 
 def valid_user(user):
     global userid
@@ -21,6 +22,7 @@ def valid_user(user):
 messages=[]
 
 
+#create a register a page
 
 @app.route('/')
 def ChatMainPage():
@@ -35,7 +37,7 @@ def addMessage():
         return "invalid user"
     global messages
     user=session["user"]
-    message=request.get_data() #body will contain the messages
+    message=request.get_data() #body will contain the messages #todo find other ways to do this
     message=user+":"+str(message)[2:-1]
     messages.append(message)
     print("Message addded")
