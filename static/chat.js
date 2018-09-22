@@ -45,7 +45,9 @@ var submit = document.getElementById("submit");
 var message=document.getElementById("message");
 submit.addEventListener("click",(e)=>{
     e.preventDefault();
-    controller.sendMessage(message.value);
+   message=message.value;
+   message.value=""; 
+   controller.sendMessage(message);
 });
 
 var view={
