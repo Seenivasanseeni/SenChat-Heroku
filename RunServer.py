@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request,session
+import os
+port=os.environ.get("PORT",8000)
 app=Flask(__name__)
 
 app.config["SECRET_KEY"]=b'qz\xc3\xf2\x80\xe1\xad\xf2\xf3\x93\x19(~\xac\xb4Ju\xdfl\xcd\xb5\xf9%\xdct\xc81]\xb6\xda\xed\x1c\xa5\x8d'
@@ -65,5 +67,6 @@ def sendMessages():
     print(reply)
     return reply
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=port)
