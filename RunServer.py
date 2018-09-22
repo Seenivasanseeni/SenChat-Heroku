@@ -34,8 +34,9 @@ def addMessage():
     if(not valid_user(session["user"])):
         return "invalid user"
     global messages
+    user=session["user"]
     message=request.get_data() #body will contain the messages
-    message=str(message)[2:-1]
+    message=user+":"+str(message)[2:-1]
     messages.append(message)
     print("Message addded")
     return "Message added"
