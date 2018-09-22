@@ -42,11 +42,11 @@ var controller={
 
 
 var submit = document.getElementById("submit");
-var message=document.getElementById("message");
+var messageE=document.getElementById("message");
 submit.addEventListener("click",(e)=>{
     e.preventDefault();
-   message=message.value;
-   message.value=""; 
+   message=messageE.value;
+   messageE.value=""; 
    controller.sendMessage(message);
 });
 
